@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-#include "FastLEDController.h" 
+#include "FastLEDController.h"
 
 FastLEDController::FastLEDController(FastLEDControllerStorage* storage)
 	: temperatureController(nullptr), storage(storage) {
@@ -201,12 +201,12 @@ bool FastLEDController::renderColorWave(ChannelData& channelData, LEDGroup& grou
 
 bool FastLEDController::renderStatic(ChannelData& channelData, LEDGroup& group, int groupLedCount) {
 	int duration = applySpeed(100, group.speed);
-	int count = animation_step_count(duration, 1);	
+	int count = animation_step_count(duration, 1);
 	if (count > 0) {
 		fill_solid(&channelData.leds[group.ledIndex], groupLedCount, group.color1);
 		return true;
 	}
-	return false;	
+	return false;
 }
 
 bool FastLEDController::renderTemperature(ChannelData& channelData, LEDGroup& group, int groupLedCount) {
